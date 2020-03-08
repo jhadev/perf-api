@@ -28,4 +28,4 @@ Metric.init(
   }
 );
 
-export { Metric };
+export default Metric;

@@ -1,4 +1,5 @@
 import handle from '../utils/promises';
+// FIXME: cannot route from index?
 import { Metric } from '../models';
 
 const getAllMetrics = async (req, res) => {
@@ -56,7 +57,7 @@ const updateMetric = async (req, res) => {
 
 const deleteMetric = async (req, res) => {
   const [err, deletedMetric] = await handle(
-    Metric.destroy(req.body, {
+    Metric.destroy({
       where: {
         id: req.params.id
       }

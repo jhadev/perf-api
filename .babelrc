@@ -1,3 +1,14 @@
+// transpiling to work with sequelize
+
 {
-  "presets": ["env"]
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ]
 }

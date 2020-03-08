@@ -1,4 +1,4 @@
 // import other models
-import { Metric } from './Metric';
+import Metric from './Metric';
 
 export { Metric };
