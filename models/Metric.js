@@ -11,6 +11,7 @@ Metric.init(
       allowNull: false
     },
     date: {
+      // YYYY-MM-DD HH:MI:SS
       type: DataTypes.DATE,
       allowNull: false
     },
@@ -27,4 +28,4 @@ Metric.init(
   }
 );
 
-export default Metric;
+export { Metric };
