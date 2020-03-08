@@ -11,6 +11,7 @@ Metric.init(
       allowNull: false
     },
     date: {
+      // YYYY-MM-DD HH:MI:SS
       type: DataTypes.DATE,
       allowNull: false
     },
