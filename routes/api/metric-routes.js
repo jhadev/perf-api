@@ -1,6 +1,6 @@
 // import express router
 const router = require('express').Router();
-// import controller functions
+// import all controller functions
 import {
   getAllMetrics,
   getOneMetric,
@@ -17,6 +17,8 @@ router
 // get a specific metric by id
 // update metric by id
 // delete metric by id
+
+// `/api/metrics/:id`
 router
   .route('/:id')
   .get(getOneMetric)
