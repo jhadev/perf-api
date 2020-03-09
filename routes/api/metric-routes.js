@@ -6,7 +6,8 @@ import {
   getOneMetric,
   createMetric,
   updateMetric,
-  deleteMetric
+  deleteMetric,
+  findAllByYear
 } from '../../controllers/metrics-controller';
 // will eventually be `/api/metrics`
 router
@@ -24,5 +25,7 @@ router
   .get(getOneMetric)
   .put(updateMetric)
   .delete(deleteMetric);
+
+router.route('/year').post(findAllByYear);
 
 export default router;
