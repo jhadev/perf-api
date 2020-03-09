@@ -1,19 +1,13 @@
 // import express router
 const router = require('express').Router();
 // import all controller functions
-import {
-  getAllMetrics,
-  getOneMetric,
-  createMetric,
-  updateMetric,
-  deleteMetric,
-  findAllByYear
-} from '../../controllers/metrics-controller';
+import * as crud from '../../controllers/metrics-crud';
+import * as aggregate from '../../controllers/metrics-aggregation';
 // will eventually be `/api/metrics`
 router
   .route('/')
-  .get(getAllMetrics)
-  .post(createMetric);
+  .get(crud.getAllMetrics)
+  .post(crud.createMetric);
 
 // get a specific metric by id
 // update metric by id
@@ -22,10 +16,17 @@ router
 // `/api/metrics/:id`
 router
   .route('/:id')
-  .get(getOneMetric)
-  .put(updateMetric)
-  .delete(deleteMetric);
+  .get(crud.getOneMetric)
+  .put(crud.updateMetric)
+  .delete(crud.deleteMetric);
 
-router.route('/year').post(findAllByYear);
+router.route('/month/:month').get(aggregate.findAllByMonth);
+
+router.route('/year/:year').get(aggregate.findAllByYear);
+
+router.route('/date/:month/:year').get(aggregate.findByMonthAndYear);
+
+// router.route('/year').post(findAllByYear);
+// router.route('/month').post(findAllByMonth);
 
 export default router;

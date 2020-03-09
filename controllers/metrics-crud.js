@@ -1,6 +1,4 @@
-import { Op } from 'sequelize';
 import handle from '../utils/promises';
-// FIXME: cannot route from index?
 import { Metric } from '../models';
 
 const getAllMetrics = async (req, res) => {
@@ -72,36 +70,10 @@ const deleteMetric = async (req, res) => {
   res.json(deletedMetric);
 };
 
-const findAllByYear = async (req, res) => {
-  if (req.body.year.length !== 4 || req.body.year < 2000) {
-    console.log('year must be 4 digits');
-    return res.json({
-      message: 'must input a valid year past the year 2000'
-    });
-  }
-  const [err, metrics] = await handle(
-    Metric.findAll({
-      where: {
-        date: {
-          [Op.startsWith]: req.body.year
-        }
-      }
-    })
-  );
-
-  if (err) {
-    console.log(err);
-    return res.json(err);
-  }
-
-  res.json(metrics);
-};
-
 export {
   getAllMetrics,
   getOneMetric,
   createMetric,
   updateMetric,
-  deleteMetric,
-  findAllByYear
+  deleteMetric
 };

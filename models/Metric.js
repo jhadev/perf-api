@@ -4,6 +4,7 @@ import sequelize from '../config/connection';
 class Metric extends Model {}
 
 // define table data here
+// FIXME: incomplete data model
 Metric.init(
   {
     title: {
