@@ -1,5 +1,4 @@
 import handle from '../utils/promises';
-// FIXME: cannot route from index?
 import { Metric } from '../models';
 
 const getAllMetrics = async (req, res) => {
